@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Will You Be My Valentine? 💘🐻</title>
+  <style>
+    body {
+  margin: 0;
+  height: 100vh;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: linear-gradient(135deg, #c8b6ff, #e0c3fc, #f3e8ff);
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Floating decor elements */
+.decor-heart {
+  position: absolute;
+  font-size: 3rem;
+  color: rgba(138, 43, 226, 0.35);
+  pointer-events: none;
+  animation: float 12s infinite ease-in-out;
+}
+
+.decor-heart:nth-child(1) { top: 10%; left: 8%; animation-delay: 0s; }
+.decor-heart:nth-child(2) { top: 25%; right: 12%; animation-delay: 3s; }
+.decor-heart:nth-child(3) { bottom: 15%; left: 18%; animation-delay: 6s; }
+.decor-heart:nth-child(4) { bottom: 30%; right: 10%; animation-delay: 9s; }
+
+@keyframes float {
+  0%,100% { transform: translateY(0) rotate(0deg); }
+  50%     { transform: translateY(-30px) rotate(10deg); }
+}
+
+/* Main container */
+.container {
+  text-align: center;
+  background: rgba(255,255,255,0.85);
+  padding: 3rem 4rem;
+  border-radius: 28px;
+  box-shadow: 0 15px 50px rgba(106,13,173,0.25);
+  max-width: 92vw;
+  backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 2;
+}
+
+/* Images */
+.cute-img {
+  max-width: 180px;
+  margin: 0.8rem auto;
+  display: block;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* Heading */
+h1 {
+  font-size: 3.2rem;
+  margin: 0.5rem 0 1.5rem;
+  color: #6a0dad;
+  text-shadow: 0 2px 12px rgba(106,13,173,0.35);
+}
+
+/* Buttons container */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 5.5rem;
+  margin-top: 2.2rem;
+  position: relative;
+  min-height: 90px;
+}
+
+/* General button styling */
+button {
+  font-size: 1.6rem;
+  padding: 1.1rem 3rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  box-shadow: 0 6px 22px rgba(0,0,0,0.18);
+}
+
+/* YES Button */
+#yesBtn {
+  background: #8e44ad;
+  color: white;
+}
+
+#yesBtn:hover {
+  background: #a569bd;
+  transform: scale(1.14);
+  box-shadow: 0 14px 35px rgba(142,68,173,0.55);
+}
+
+/* NO Button */
+#noBtn {
+  background: #5d6d7e;
+  color: white;
+}
+
+#noBtn:hover {
+  background: #85929e;
+}
+
+/* Message text */
+.message {
+  font-size: 1.45rem;
+  margin: 1.6rem 0;
+  min-height: 2.6rem;
+  color: #7d3c98;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 520px) {
+  .buttons { 
+    flex-direction: column; 
+    gap: 3rem; 
+  }
+  button { 
+    font-size: 1.4rem; 
+    padding: 1rem 2.6rem; 
+  }
+  h1 { 
+    font-size: 2.6rem; 
+  }
+  .cute-img { 
+    max-width: 140px; 
+  }
+}
+
+  </style>
+</head>
+<body>
+
+<div class="decor-heart">💗</div>
+<div class="decor-heart">💖</div>
+<div class="decor-heart">💕</div>
+<div class="decor-heart">💘</div>
+
+<div class="container">
+  <img 
+    src="https://thumbs.dreamstime.com/b/two-cute-watercolor-teddy-bears-hold-pink-heart-together-adorable-brown-cartoon-animals-share-affection-perfect-valentine-day-395222141.jpg" 
+    alt="cute teddy bears holding heart" 
+    class="cute-img"
+  >
+
+  <h1>Will you be my Valentine? 🐻💕</h1>
+  
+  <div class="message" id="flirtyLine">Choose wisely cutie... 😘</div>
+
+  <div class="buttons">
+    <button id="yesBtn">YES 💖</button>
+    <button id="noBtn">NO 😔</button>
+  </div>
+
+  <img 
+    src="https://thumbs.dreamstime.com/b/cute-cupid-flying-holding-bow-arrow-valentine-s-day-adorable-wings-pink-clouds-celebrating-353161419.jpg" 
+    alt="cute cartoon cupid" 
+    class="cute-img"
+    style="margin-top: 1.5rem;"
+  >
+</div>
+
+<script>
+const noBtn = document.getElementById('noBtn');
+const yesBtn = document.getElementById('yesBtn');
+const message = document.getElementById('flirtyLine');
+
+// const messages = [
+//   "Eeeeh? Are you really sure? 🥺💦",
+//   "My little heart is shaking... think again pls 💗",
+//   "Noooo don't do this to meee... 💔",
+//   "Pretty pretty please with a cherry on top? 🥰",
+//   "You're making teddy cry... 😢🐻",
+//   "Last chance before I send cupid after you 😭🏹",
+//   "Hehe... now you're in trouble~ 😈💘"
+//];
+
+const messages = [
+  "Are you certain? I was hoping for a different answer. 🌙",
+  "Take a moment. Some invitations deserve consideration. ✨",
+  "I promise, it would be a beautiful decision. 🌹",
+  "You might find saying yes feels right. 💫",
+  "Some stories begin with a single word. 📖",
+  "I’ll wait — but not forever. ⏳",
+  "This could be the start of something lovely. 💌"
+];
+
+
+let noCount = 0;
+
+const shrinkFactor = 0.80;
+const growFactor   = 1.20;
+
+function updateButtonSizes() {
+  const curNo  = parseFloat(noBtn.style.fontSize)  || 1.6;
+  const curYes = parseFloat(yesBtn.style.fontSize) || 1.6;
+
+  noBtn.style.fontSize  = (curNo  * shrinkFactor) + 'rem';
+  noBtn.style.padding   = (1.1 * shrinkFactor * noCount/2) + 'rem ' + (3 * shrinkFactor * noCount/2) + 'rem';
+
+  yesBtn.style.fontSize = (curYes * growFactor) + 'rem';
+  yesBtn.style.padding  = (1.1 * growFactor * noCount/3) + 'rem ' + (3 * growFactor * noCount/3) + 'rem';
+}
+
+noBtn.addEventListener('click', () => {
+  noCount++;
+
+  if (noCount - 1 < messages.length) {
+    message.textContent = messages[noCount - 1];
+  } else {
+    message.innerHTML = "Only one answer is allowed now cutie... 😏💕";
+  }
+
+  updateButtonSizes();
+
+  if (noCount >= 6) {
+    noBtn.style.display = 'none';
+    message.innerHTML = "Looks like fate has spoken~ Say YES! 🏹💞";
+    yesBtn.style.fontSize = '2.4rem';
+    yesBtn.style.padding  = '1.5rem 5rem';
+  }
+});
+
+yesBtn.addEventListener('click', () => {
+  document.body.innerHTML = `
+    <div style="
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg, #b39ddb, #9575cd, #7e57c2);
+  color:white;
+  font-family:system-ui;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+">
+
+      <img 
+        src="./Ragavi-Saravanan.jpeg"
+        alt="happy cartoon couple hugging" 
+        style="max-width:320px; border-radius:24px; box-shadow:0 15px 50px rgba(0,0,0,0.4); margin-bottom:2rem;"
+      >
+
+      <h1 style="font-size:5.5rem; margin:0; text-shadow:0 5px 25px #00000090;">
+        YAAAYYY! 💖💖💖
+      </h1>
+      <div style="font-size:2.4rem; margin:2rem 0; max-width:90%;">
+        You’ve made a wonderful choice. 😉<br>
+        I promise it will be worth it. 💫
+      </div>
+      <div style="font-size:7rem; animation:pulse 1.6s infinite;">
+        💕 💗 💘 💝 💞 🏹
+      </div>
+      <style>
+        @keyframes pulse {
+          0%,100% { transform: scale(1); }
+          50%     { transform: scale(1.15); }
+        }
+      </style>
+    </div>
+  `;
+});
+</script>
+
+</body>
+</html>
